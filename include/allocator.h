@@ -54,6 +54,11 @@ typedef struct PAddr PAddr;
 typedef struct PAddr ppointer;
 extern ppointer PADDR_NULL;
 
+typedef struct AllocatorHeader {
+    PAddr node_head;
+    char pad[64 - sizeof(PAddr)];
+} AllocatorHeader;
+
 int initAllocator(void *, const char *, size_t, unsigned char);
 int destroyAllocator();
 ppointer recoverAllocator(ppointer (*)(ppointer));
