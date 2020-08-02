@@ -20,29 +20,13 @@ extern "C" {
 #  include <x86intrin.h>
 #endif
 
-#ifdef CONCURRENT
-// struct PAddr {
-//     unsigned int fid;
-//     size_t offset;
-// };
+// #ifdef CONCURRENT
+// #else
+// // typedef void * ppointer;
+// #  define P_NULL NULL
 
-// typedef struct PAddr PAddr;
-
-// typedef struct PAddr ppointer;
-// extern ppointer PADDR_NULL;
-
-#  define P_NULL PADDR_NULL
-
-typedef struct AllocatorHeader {
-    PAddr node_head;
-    char pad[64 - sizeof(PAddr)];
-} AllocatorHeader;
-#else
-// typedef void * ppointer;
-#  define P_NULL NULL
-
-typedef void AllocatorHeader;
-#endif
+// typedef void AllocatorHeader;
+// #endif
 
 struct PAddr {
     unsigned int fid;
@@ -53,6 +37,7 @@ typedef struct PAddr PAddr;
 
 typedef struct PAddr ppointer;
 extern ppointer PADDR_NULL;
+#define P_NULL PADDR_NULL
 
 typedef struct AllocatorHeader {
     PAddr node_head;
