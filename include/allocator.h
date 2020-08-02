@@ -21,15 +21,16 @@ extern "C" {
 #endif
 
 #ifdef CONCURRENT
-struct PAddr {
-    unsigned int fid;
-    size_t offset;
-};
+// struct PAddr {
+//     unsigned int fid;
+//     size_t offset;
+// };
 
-typedef struct PAddr PAddr;
+// typedef struct PAddr PAddr;
 
-typedef struct PAddr ppointer;
-extern ppointer PADDR_NULL;
+// typedef struct PAddr ppointer;
+// extern ppointer PADDR_NULL;
+
 #  define P_NULL PADDR_NULL
 
 typedef struct AllocatorHeader {
